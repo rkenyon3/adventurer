@@ -1,0 +1,9 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+
+#define VERSION_MAJOR @adventurer_VERSION_MAJOR@
+#define VERSION_MINOR @adventurer_VERSION_MINOR@
+
+#define CHAR_MILLI_DELAY 0  // Change this to set how fast prompt text prints
+
+#endif
