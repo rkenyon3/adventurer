@@ -21,6 +21,7 @@ pipeline {
 
     stage('Build') {
       steps {
+        sh "ls"
         sh "cd adventurer"
         sh "mkdir build"
         sh "cd build"
