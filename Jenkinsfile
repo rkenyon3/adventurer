@@ -24,7 +24,7 @@ pipeline {
         sh "ls"
         sh "mkdir build"
         sh "cd build"
-        sh "ls"
+        sh "ls; pwd; ls .."
         sh "cmake ../src"
         sh "cmake --build ."
       }
