@@ -6,16 +6,22 @@ pipeline {
   	}
   }
   stages {
+  	stage('SCM') {
+			checkout(
+      	[
+      		$class: 'GitSCM',
+      		branches: [[name:'main']], 
+      		userRemoteConfigs: [[url: 'https://github.com/rkenyon3/adventurer.git']]
+      	]
+    	)
+    }
     stage('Build') {
       steps {
+      	cd adventurer
         mkdir build
-        checkout(
-        	[
-        		$class: 'GitSCM',
-        		branches: [[name:'*/main']], 
-        		userRemoteConfigs: [[url: 'https://github.com/rkenyon3/adventurer.git']]
-        	]
-      	)
+        cd build
+        cmake ../src
+        cmake --build .
       }
     }
 
