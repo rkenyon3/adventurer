@@ -1,17 +1,22 @@
 pipeline {
-  agent any
+  agent{
+  	dockerfile {
+  		filename 'Dockerfile'
+  		dir 'build_env'
+  		label 'adventurer_docker_build_env'
+  	}
+  }
   stages {
     stage('Build') {
       steps {
-        cmakeBuild(
-        	installation: 'InSearchPath', 
-        	sourceDir: 'src', 
-        	buildDir: 'build'
-        	steps:[
-        		[args: "--build ."]
+        mkdir build
+        checkout(
+        	[
+        		$class: 'GitSCM',
+        		branches: [[name:'*/main']], 
+        		userRemoteConfigs: [[url: 'https://github.com/rkenyon3/adventurer.git']]
         	]
-        		
-				)
+      	)
       }
     }
 
