@@ -12,7 +12,7 @@ pipeline {
         checkout(
           [
             $class: 'GitSCM',
-            branches: [[name:'main']], 
+            branches: scm.branches,
             userRemoteConfigs: [[url: 'https://github.com/rkenyon3/adventurer.git']]
           ]
         )
