@@ -21,9 +21,9 @@ pipeline {
 
     stage('Build') {
       steps {
-        cd adventurer
-        mkdir build
-        cd build
+        sh "cd adventurer"
+        sh "mkdir build"
+        sh "cd build"
         sh "cmake ../src"
         sh "cmake --build ."
       }
