@@ -24,8 +24,8 @@ pipeline {
         cd adventurer
         mkdir build
         cd build
-        cmake ../src
-        cmake --build .
+        sh "cmake ../src"
+        sh "cmake --build ."
       }
     }    
   }
