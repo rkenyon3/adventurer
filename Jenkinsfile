@@ -3,7 +3,6 @@ pipeline {
   	dockerfile {
   		filename 'Dockerfile'
   		dir 'build_env'
-  		label 'adventurer_docker_build_env'
   	}
   }
   stages {
