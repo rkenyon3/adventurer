@@ -19,13 +19,15 @@ pipeline {
 
       stage('Build') {
         steps {
-          cmakeBuild(
+          cmake(
           	installation: 'InSearchPath', 
           	buildDir: 'build', 
           	sourceDir: 'src', 
           	steps: [],
           	cleanBuild: true
         	)
+        	cd build
+        	sh "cmake --build ."
         }
       }
 
