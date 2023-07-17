@@ -23,5 +23,9 @@ pipeline
         )
       }
     }
+    stage('Build')
+    {
+      sh -c "mkdir build && cd build && cmake .. && make"
+    }
   }
 }
