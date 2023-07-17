@@ -24,9 +24,7 @@ pipeline {
           	buildDir: 'build', 
           	sourceDir: 'src', 
           	steps: [],
-          	cleanBuild: true,
-          	buildType: 'debug', 
-          	sourceDir: 'source'
+          	cleanBuild: true
         	)
         }
       }
