@@ -19,6 +19,7 @@ pipeline {
 
       stage('Build') {
         steps {
+          sh -c "echo test"
           //sh -c "mkdir build && cd build && cmake .. && make"
         }
       }
