@@ -21,12 +21,14 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh "ls"
-        mkdir build
-        cd build
-        sh "ls; pwd; ls .."
-        sh "cmake ../src"
-        sh "cmake --build ."
+        sh "
+          ls
+          mkdir build
+          cd build
+          ls; pwd; ls ..
+          cmake ../src
+          cmake --build .
+        "
       }
     }    
   }
