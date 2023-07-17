@@ -1,44 +1,39 @@
 pipeline {
-  agent{
+  agent {
     dockerfile {
       filename 'Dockerfile'
       dir 'build_env'
     }
-  }
 
+  }
   stages {
-    stage('SCM'){
-      steps{
-        checkout(
-          [
-            $class: 'GitSCM',
-            branches: scm.branches,
-            userRemoteConfigs: [[url: 'https://github.com/rkenyon3/adventurer.git']]
-          ]
-        )
-      }
-    }
-
-    stage('Build'){
+    stage('SCM') {
       steps {
-        cmakeBuild(
-          installation: 'InSearchPath',
-          buildDir: "build",
-          steps: []
-        )
+        checkout([
+                      $class: 'GitSCM',
+                      branches: scm.branches,
+                      userRemoteConfigs: [[url: 'https://github.com/rkenyon3/adventurer.git']]
+                    ])
+        }
       }
-    }
-    
-    stage('Test'){
-      steps{
-        echo "Testing placeholder"
+
+      stage('Build') {
+        steps {
+          cmakeBuild(installation: 'InSearchPath', buildDir: 'build', steps: [], cleanBuild: true, buildType: 'debug', sourceDir: 'source')
+        }
       }
-    }
-    
-    stage('Deploy'){
-      steps{
-        echo "Deployment placeholder"
+
+      stage('Test') {
+        steps {
+          echo 'Testing placeholder'
+        }
       }
+
+      stage('Deploy') {
+        steps {
+          echo 'Deployment placeholder'
+        }
+      }
+
     }
   }
-}
