@@ -21,7 +21,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        ls
+        sh "ls"
         mkdir build
         cd build
         sh "ls; pwd; ls .."
