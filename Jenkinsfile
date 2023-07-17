@@ -7,7 +7,7 @@ pipeline {
   }
 
   stages {
-    stage('SCM') {
+    stage('SCM'){
       steps{
         checkout(
           [
@@ -19,12 +19,24 @@ pipeline {
       }
     }
 
-    stage('Build') {
+    stage('Build'){
       steps {
         cmakeBuild(
           installation: 'InSearchPath'
         )
       }
-    }    
+    }
+    
+    stage('Test'){
+      steps{
+        echo "Testing placeholder"
+      }
+    }
+    
+    stage('Deploy'){
+      steps{
+        echo "Deployment placeholder"
+      }
+    }
   }
 }
