@@ -30,5 +30,19 @@ pipeline
         sh 'mkdir build && cd build && cmake .. && make'
       }
     }
+    stage('Test')
+    {
+      steps
+      {
+        sh 'echo Test placeholder'
+      }
+    }
+    stage('Deploy')
+    {
+      steps
+      {
+        sh 'echo Deploy placeholder'
+      }
+    }    
   }
 }
