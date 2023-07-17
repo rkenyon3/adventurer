@@ -22,8 +22,8 @@ pipeline {
     stage('Build'){
       steps {
         cmakeBuild(
-          installation: 'InSearchPath'
-          buildDir: "build"
+          installation: 'InSearchPath',
+          buildDir: "build",
           steps: [
             [args: '--build .']
           ]
