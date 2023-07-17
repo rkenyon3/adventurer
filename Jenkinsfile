@@ -24,6 +24,7 @@ pipeline {
         cmakeBuild(
           installation: 'InSearchPath',
           buildDir: "build"
+          steps: []
         )
       }
     }
