@@ -4,6 +4,6 @@
 #define VERSION_MAJOR @adventurer_VERSION_MAJOR@
 #define VERSION_MINOR @adventurer_VERSION_MINOR@
 
-#define CHAR_MILLI_DELAY 0  // Change this to set how fast prompt text prints
+#define CHAR_MILLI_DELAY 10  // Change this to set how fast prompt text prints
 
 #endif
