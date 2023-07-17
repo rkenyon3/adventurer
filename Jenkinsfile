@@ -23,6 +23,11 @@ pipeline {
       steps {
         cmakeBuild(
           installation: 'InSearchPath'
+          sourceDir: ".."
+          buildDir: "build"
+          steps: [
+            [args: '--build .']
+          ]
         )
       }
     }
