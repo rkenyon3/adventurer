@@ -21,8 +21,8 @@ pipeline {
         steps {
 					mkdir build
 					cd build
-					sh cmake ..
-					sh cmake --build .
+					cmake ..
+					cmake --build .
         }
       }
 
