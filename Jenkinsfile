@@ -21,14 +21,9 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh "
-          ls
-          mkdir build
-          cd build
-          ls; pwd; ls ..
-          cmake ../src
-          cmake --build .
-        "
+        cmakeBuild(
+          installation: 'InSearchPath'
+        )
       }
     }    
   }
