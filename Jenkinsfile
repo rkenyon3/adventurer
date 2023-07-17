@@ -10,10 +10,10 @@ pipeline {
     stage('SCM') {
       steps {
         checkout([
-                      $class: 'GitSCM',
-                      branches: scm.branches,
-                      userRemoteConfigs: [[url: 'https://github.com/rkenyon3/adventurer.git']]
-                    ])
+						$class: 'GitSCM',
+						branches: scm.branches,
+    				userRemoteConfigs: [[url: 'https://github.com/rkenyon3/adventurer.git']]
+          ])
         }
       }
 
@@ -21,8 +21,8 @@ pipeline {
         steps {
 					mkdir build
 					cd build
-					sh "cmake .."
-					sh "cmake --build ."
+					sh cmake ..
+					sh cmake --build .
         }
       }
 
