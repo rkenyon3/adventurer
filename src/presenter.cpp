@@ -41,9 +41,13 @@ void Presenter::show_text(const string text_to_show)
 	}
 }
 
-int Presenter::get_player_response(const string prompt_text, const vector<string> prompts)
+player_response Presenter::get_player_response(const string prompt_text, const vector<string> prompts)
 {
-	int response_number = -1;
+	player_response response;
+	stringstream input_str_buf;
+	int prompt_input, response_number;
+	
+	// print prompt
 	this->show_text(prompt_text);
 	for(int i = 0; i < prompts.size(); i++)
 	{
@@ -52,16 +56,47 @@ int Presenter::get_player_response(const string prompt_text, const vector<string
 	}
 	cout << ">" << flush;
 	
-	// This gives one-indexed numbers for display, but returns zero-indexed for internal logic
-	cin >> response_number;
-	while(response_number < 1 || response_number > prompts.size())
-	{
-		stringstream buffer;
-		buffer << "Choose  a number between 1 and " << prompts.size() << "\n>" << flush;
-		this->show_text(buffer.str());
-		cin >> response_number;
-	}
-	response_number -= 1;
+	// Read input
+	// This gives one-indexed numbers for display, but returns zero-indexed for internal logic. Note string compare logic
+	// produces a zero if strings match, so if(!input_str.compare(...
+	response.inventory_requested = false;
+	response.prompt_returned = false;
+	response.map_requested = false;
 	
-	return response_number;
+	while(!(response.inventory_requested || response.prompt_returned || response.map_requested)
+	{
+		cin >> input_str_buf;
+		if(!input_str.str().compare("m"))
+		{
+			response.map_requested = true;
+			response.prompt_returned = false;
+			inventory_requested = false;
+		}
+		else if(!input_str.str().compare("i"))
+		{
+			response.map_requested = true;
+			response.prompt_returned = false;
+			inventory_requested = false;
+		}
+		else
+		{
+			prompt_input << input_str_buf;
+			
+			if(response_number < 1 || response_number > prompts.size())
+			{
+				stringstream buffer;
+				buffer << "Choose  a number between 1 and " << prompts.size() << "\n>" << flush;
+				this->show_text(buffer.str());
+			}
+			else
+			{
+					response.prompt_choice = response_number - 1;
+					response.inventory_requested = false;
+					response.prompt_returned = true;
+					response.map_requested = false;
+			}
+		}
+	}
+	
+	return response;
 }
