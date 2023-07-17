@@ -52,7 +52,7 @@ int Presenter::get_player_response(const string prompt_text, const vector<string
 	}
 	cout << ">" << flush;
 	
-	
+	// This gives one-indexed numbers for display, but returns zero-indexed for internal logic
 	cin >> response_number;
 	while(response_number < 1 || response_number > prompts.size())
 	{
@@ -61,6 +61,7 @@ int Presenter::get_player_response(const string prompt_text, const vector<string
 		this->show_text(buffer.str());
 		cin >> response_number;
 	}
+	response_number -= 1;
 	
 	return response_number;
 }
