@@ -27,7 +27,7 @@ pipeline
     {
       steps
       {
-        sh -c 'mkdir build && cd build && cmake .. && make'
+        sh 'mkdir build && cd build && cmake .. && make'
       }
     }
   }
