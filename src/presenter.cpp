@@ -44,7 +44,7 @@ void Presenter::show_text(const string text_to_show)
 player_response Presenter::get_player_response(const string prompt_text, const vector<string> prompts)
 {
 	player_response response;
-	stringstream input_str_buf;
+	string input_str;
 	int prompt_input, response_number;
 	
 	// print prompt
@@ -63,24 +63,25 @@ player_response Presenter::get_player_response(const string prompt_text, const v
 	response.prompt_returned = false;
 	response.map_requested = false;
 	
-	while(!(response.inventory_requested || response.prompt_returned || response.map_requested)
+	while(!(response.inventory_requested || response.prompt_returned || response.map_requested))
 	{
-		cin >> input_str_buf;
-		if(!input_str.str().compare("m"))
+		cin >> input_str;
+
+		if(!input_str.compare("m"))
 		{
 			response.map_requested = true;
 			response.prompt_returned = false;
-			inventory_requested = false;
+			response.inventory_requested = false;
 		}
-		else if(!input_str.str().compare("i"))
+		else if(!input_str.compare("i"))
 		{
 			response.map_requested = true;
 			response.prompt_returned = false;
-			inventory_requested = false;
+			response.inventory_requested = false;
 		}
 		else
 		{
-			prompt_input << input_str_buf;
+			response_number = atoi(input_str.c_str());
 			
 			if(response_number < 1 || response_number > prompts.size())
 			{
