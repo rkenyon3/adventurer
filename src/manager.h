@@ -7,6 +7,7 @@
 #include "player_response.h"
 #include "presenter.h"
 #include "text.h"
+//#include "available_game_states.h"
 
 class Manager{
 	public:
@@ -14,7 +15,7 @@ class Manager{
 		void run();
 	
 	private:
-		Presenter* presenter;
+		//Presenter* presenter;
 };
 
 #endif
