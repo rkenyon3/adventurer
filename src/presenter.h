@@ -2,6 +2,7 @@
 #define PRESENTER_H
 
 #include <chrono>
+#include <cstdlib> // temporary
 #include <iostream>
 #include <stdio.h>
 #include <string>
@@ -12,12 +13,13 @@
 #include <vector>
 
 #include "config.h"
+#include "player_response.h"
 
 class Presenter{
 	public:
 		Presenter();
 		void show_text(const std::string text_to_show);
-		int get_player_response(const std::string prompt_text, const std::vector<std::string> prompts);
+		player_response get_player_response(const std::string prompt_text, const std::vector<std::string> prompts);
 };
 
 #endif

@@ -17,8 +17,8 @@ void Manager::run()
 	prompts.push_back(option_beginning_stay);
 	
 	
-	int selected_option = this->presenter->get_player_response(beginning_text, prompts);
-	switch(selected_option)
+	player_response response = this->presenter->get_player_response(beginning_text, prompts);
+	switch(response.prompt_choice)
 	{
 		case 0:
 			this->presenter->show_text(response_beginning_castle);
