@@ -5,6 +5,7 @@
 	"__prompts__": {
 		"full_name": "Enter your full name",
 		"email": "Enter your email",
-		"username": "Enter your username"
+		"username": "Enter your username",
+		"project_name": "Enter a new project name"
 	}	
 }
