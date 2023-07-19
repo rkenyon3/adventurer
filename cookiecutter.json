@@ -1,0 +1,10 @@
+{
+	"full_name": "Richard Neil Kenyon",
+	"email": "richardkenyon1991@hotmail.co.uk",
+	"project_name": "adventurer",
+	"__prompts__": {
+		"full_name": "Enter your full name",
+		"email": "Enter your email",
+		"username": "Enter your username"
+	}	
+}
