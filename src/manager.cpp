@@ -9,30 +9,11 @@ Manager::Manager()
 
 void Manager::run()
 {
-//	this->presenter->show_text(welcome_text);
-//
-//	vector<string> prompts;
-//	prompts.push_back(option_beginning_castle);
-//	prompts.push_back(option_beginning_forest);
-//	prompts.push_back(option_beginning_stay);
-//
-//
-//	player_response response = this->presenter->get_player_response(beginning_text, prompts);
-//	switch(response.prompt_choice)
-//	{
-//		case 0:
-//			this->presenter->show_text(response_beginning_castle);
-//			break;
-//		case 1:
-//			this->presenter->show_text(response_beginning_forest);
-//			break;
-//		case 2:
-//			this->presenter->show_text(response_beginning_stay);
-//			break;
-//
-//	}
+	// gets the first state for the game to be in (BeginningState), then
+	// follows the next state that is returned from the current one each
+	// time until the game ends
 
-	GameState *current_state, *next_state = nullptr;
+	GameState *current_state, *next_state;
 
 	current_state = new BeginningState();
 	
@@ -40,7 +21,7 @@ void Manager::run()
 	{
 		current_state -> process_game_state();
 		next_state = current_state->get_next_game_state();
-		delete *current_state; // TODO: confirm if this works
+		delete current_state; // TODO: confirm if this works
 		current_state = next_state;
 	} while(current_state != nullptr);
 }

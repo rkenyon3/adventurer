@@ -11,11 +11,11 @@ class GameState
 {
 public:
 	GameState();
-	GameState get_next_game_state();
-	void process_game_state();
-	~GameState();
+	GameState * get_next_game_state();
+	virtual void process_game_state();
+	virtual ~GameState();
 
-private:
+protected:
 	GameState * next_game_state;
 };
 

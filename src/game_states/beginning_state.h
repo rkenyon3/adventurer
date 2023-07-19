@@ -4,7 +4,7 @@
 #include "../game_state.h"
 #include "lost_state.h"
 
-class BeginningState : GameState
+class BeginningState : public GameState
 {
 public:
 	void process_game_state();

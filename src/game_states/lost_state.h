@@ -3,12 +3,13 @@
 
 #include "../game_state.h"
 
-class LostState : GameState
+class LostState : public GameState
 {
 public:
 	void process_game_state();
 
 
 };
+
 
 #endif
