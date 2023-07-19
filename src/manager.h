@@ -4,6 +4,8 @@
 #include <iostream>
 #include <vector>
 
+#include "game_state.h"
+#include "game_states/beginning_state.h"
 #include "player_response.h"
 #include "presenter.h"
 #include "text.h"
