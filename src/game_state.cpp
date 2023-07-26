@@ -12,7 +12,7 @@ GameState * GameState::get_next_game_state()
 
 void GameState::process_game_state()
 {
-
+	std::cout << "ran base process_game_state" << std::endl;
 }
 
 GameState::~GameState()

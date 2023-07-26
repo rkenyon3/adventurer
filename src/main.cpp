@@ -11,5 +11,7 @@ int main(int argc, char * argv[])
 	
 	Manager manager = Manager();
 	manager.run();
+
+	std::cout << "\n\nRun completed" << std::endl;
 }
 
